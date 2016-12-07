@@ -117,6 +117,9 @@ var players = [
     starter: false
   }
 ];
+
+// * Print the average playing time of the starters.
+// * Print the average playing time of the bench players.
 var avgBenchPlayed = 0;
 var avgStarterPlayed = 0;
 var elsePlayed = 0;
@@ -137,21 +140,23 @@ for(i=0; i<players.length; i++){
     }
 }
 
-avgOfAvgStarters = avgStarterPlayed/starterCounter
-avgOfAvgBench = avgBenchPlayed/benchCounter
+avgOfAvgStarters = parseInt(avgStarterPlayed/starterCounter)
+avgOfAvgBench = parseInt(avgBenchPlayed/benchCounter)
 
-console.log(avgOfAvgStarters);
-console.log(avgOfAvgBench);
+console.log(avgOfAvgStarters + " is the total average minutes for the starting lineup");
+console.log(avgOfAvgBench + " is the total average minutes for the bench players");
 
+
+// * Create an array of the names of each player.
 var names = []
 
 for (var i = 0; i < players.length; i++) {
     names.push(players[i].name)
 }
 
-console.log(names)
+console.log(names + " is the roster for the Atlanta Hawks")
 
-
+// * Create an array of the names of the players who average more than 10 points per game.
 var greaterThanTenPts = [];
 
 for (var i = 0; i < players.length; i++) {
@@ -160,9 +165,9 @@ for (var i = 0; i < players.length; i++) {
     }
 }
 
-console.log(greaterThanTenPts);
+console.log(greaterThanTenPts + " all average more than 10 points per game");
 
-
+// * Create an array of the names of the players who average more than 5 rebounds per game.
 var greaterThanFiveRbs = [];
 
 for (var i = 0; i < players.length; i++) {
@@ -171,25 +176,27 @@ for (var i = 0; i < players.length; i++) {
     }
 }
 
-console.log(greaterThanFiveRbs);
+console.log(greaterThanFiveRbs + " all average more than 5 rebounds per game");
 
-
+//* Who is the player with the most points per minute played? Write a program to find that out.
 var pointsPerMin = [];
 
 for (var i = 0; i < players.length; i++) {
-  pointsPerMin[i] = (players[i].avgMinutesPlayed / players[i].avgPoints)
+  pointsPerMin[i] = (players[i].avgPoints / players[i].avgMinutesPlayed)
 }
 
 var largest = Math.max.apply(Math, pointsPerMin);
+
 console.log(largest);
 
+// * Based on this data, what is the average points score for the team as a whole?
 var pointsForTeam = 0;
 
 for (var i = 0; i < players.length; i++) {
   pointsForTeam += players[i].avgPoints;
 }
 
-console.log(pointsForTeam)
+console.log(parseInt(pointsForTeam))
 
 
 
